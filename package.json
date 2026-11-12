@@ -1,0 +1,12 @@
+{
+  "name": "hsr-damage-lab-continuation",
+  "version": "0.6.0-alpha",
+  "private": true,
+  "description": "Experimental mechanics-driven combat simulator and team ranking vertical slice",
+  "scripts": {
+    "test": "node tests/run-tests.js",
+    "generate-data": "node tools/build-params.js",
+    "rank": "node tools/run-optimizer.js --locked \"Jing Yuan\" --cycles 5 --budget 80"
+  },
+  "engines": {"node": ">=18"}
+}
