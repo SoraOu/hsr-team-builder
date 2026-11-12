@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HSR Damage Lab — Experimental Team Optimizer</title>
+<style>
+:root{font-family:Inter,'Segoe UI',Arial,sans-serif;color:#ecf2ff;background:#0b1020;color-scheme:dark}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top left,#182847 0,#0b1020 56%);min-height:100vh}
+main{max-width:1250px;margin:auto;padding:28px 22px 70px}a{color:#9fd9ff}h1{font-size:2rem;margin:10px 0}h2{font-size:1.14rem;margin:0 0 16px}
+p{line-height:1.55;color:#a8bad1}.sub{font-size:.88rem}.muted{color:#9aafc6}.eyebrow{letter-spacing:.16em;text-transform:uppercase;color:#71d7da;font-size:.72rem;font-weight:700}
+.panel{background:#111a30;border:1px solid #273958;border-radius:17px;margin-top:22px;padding:22px;box-shadow:0 8px 24px #04081935}
+.controls{display:grid;grid-template-columns:repeat(5,minmax(130px,1fr));gap:14px}
+label{display:block;color:#c5d4e9;font-size:.84rem;font-weight:700}select,input{margin-top:7px;width:100%;padding:11px;border:1px solid #34496a;border-radius:9px;color:#f3f6ff;background:#0c1529;font:inherit}
+button{cursor:pointer;border:0;border-radius:9px;background:#35bcb7;color:#081421;padding:12px 20px;font-weight:800}button.secondary{background:#233957;color:#dcecff}button:disabled{opacity:.5;cursor:not-allowed}
+.actionbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:19px}.fine{font-size:.8rem;margin:7px 0}
+.notice{background:#1b2336;border-left:3px solid #e0ae66;padding:10px 16px;border-radius:4px;color:#f2d8a7;font-size:.83rem}
+.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:.87rem}th,td{border-bottom:1px solid #29354e;text-align:left;padding:12px 10px;vertical-align:middle}th{color:#9fb4d4;font-size:.76rem;text-transform:uppercase;letter-spacing:.05em}td.num{font-variant-numeric:tabular-nums;text-align:right}tr:hover{background:#18253d}tr.selected{background:#1b3348}.small{font-size:.74rem;color:#a2b9d2}
+.tag{display:inline-block;font-size:.7rem;background:#253954;border:1px solid #38536f;color:#d5eafd;padding:3px 8px;border-radius:20px}
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:20px}svg{width:100%;height:260px;background:#0d1629;border-radius:10px}svg text{font-size:11px;fill:#91a7c9}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#0a1325;padding:15px;border:1px solid #29354e;border-radius:8px;font:12px/1.5 Consolas,monospace;color:#c5dafe}
+@media(max-width:850px){.controls{grid-template-columns:repeat(2,1fr)}.charts{grid-template-columns:1fr}}
+</style>
+</head>
+<body><main>
+<a href="index.html" class="sub">← Original HSR Damage Lab</a>
+<div class="eyebrow">Experimental · vertical slice</div>
+<h1>Dynamic Team Optimizer</h1>
+<p>Enumerates all valid four-character teams in the currently supported seven-character slice and compares actual simulated combat events. No fixed synergy scores or predefined team templates.</p>
+<div class="notice">These are <b>partial expected-damage simulations</b>, not reliable in-game team rankings. Enemy turns, death, Break, DoT, and several equipment/Eidolon mechanics are not implemented. Rotation search is heuristic.</div>
+<section class="panel">
+<h2>Encounter & search settings</h2>
+<div class="controls">
+<label>Locked character<select id="locked"></select></label>
+<label>Duration<select id="cycles"><option value="1">1 cycle</option><option value="3">3 cycles</option><option value="5" selected>5 cycles</option><option value="10">10 cycles</option></select></label>
+<label>Enemies<select id="enemies"><option value="1" selected>1 · Boss</option><option value="3">3 · Mixed</option><option value="5">5 · Wave</option></select></label>
+<label>Enemy level<input id="level" type="number" min="1" max="200" value="95"></label>
+<label>Policies tested / team<select id="budget"><option value="12">12 · Fast</option><option value="60" selected>60 · Balanced</option><option value="140">140 · Thorough</option></select></label>
+</div>
+<div class="actionbar"><label style="display:flex;align-items:center;gap:8px;font-weight:400"><input type="checkbox" id="techniques" checked style="width:auto;margin:0">Include pre-battle techniques</label><button id="run">Enumerate & simulate</button><button id="export" disabled class="secondary">Export result JSON</button><span id="status" class="sub muted"></span></div>
+</section>
+<section class="panel" id="resultsPanel" hidden>
+<h2>Calculated results <span id="total" class="tag"></span></h2>
+<p class="fine">Simulated damage is an incomplete measure and does not include survival, effective HP, or enemy damage. Rankings are valid only inside this partial model.</p>
+<div class="tablewrap"><table><thead><tr><th>Rank</th><th>Four characters</th><th>Expected damage</th><th>Opening 2-cycle damage</th><th>Estimated SP balance</th><th>Details</th></tr></thead><tbody id="rows"></tbody></table></div>
+</section>
+<section class="panel" id="chartPanel" hidden><h2>Compare simulated top teams</h2><div class="charts"><div><p class="sub">Cumulative damage by cycle</p><svg id="cumulative" viewBox="0 0 540 260" role="img" aria-label="Cumulative damage chart"></svg></div><div><p class="sub">Damage each cycle</p><svg id="perCycle" viewBox="0 0 540 260" role="img" aria-label="Damage per cycle chart"></svg></div></div></section>
+<section class="panel" id="detailPanel" hidden><h2 id="detailTitle">Selected team</h2><p id="detailSummary"></p><h3 class="sub">Rotation policy</h3><pre id="policy"></pre><h3 class="sub">Simulated action sequence</h3><pre id="actions"></pre><h3 class="sub">First 12 damage events and applied modifiers</h3><pre id="events"></pre><h3 class="sub">Model limitations / flags</h3><pre id="flags"></pre></section>
+</main>
+<script src="combat-data.js"></script><script src="engine/params.js"></script><script src="engine/core.js"></script><script src="engine/kits.js"></script><script src="engine/optimizer.js"></script>
+<script>
+(()=>{
+'use strict';
+const $=id=>document.getElementById(id),fmt=n=>Math.round(n||0).toLocaleString('en-US'),snap=window.HSR_COMBAT_SNAPSHOT?.characters||[];
+let report=null;
+const ready=window.HSROptimizer&&window.HSRParams&&snap.length;
+$('run').disabled=!ready;
+if(!ready){$('status').textContent='Data missing: copy this folder into the existing repository and run node tools/build-params.js';return}
+const pool=window.HSROptimizer.supported(snap);
+for(const n of pool){const o=document.createElement('option');o.value=n;o.textContent=n;$('locked').appendChild(o)}
+$('locked').value=pool.includes('Jing Yuan')?'Jing Yuan':pool[0];
+function make(tag,text,cls){const e=document.createElement(tag);e.textContent=text;if(cls)e.className=cls;return e}
+function chart(node,mode,rows){const ns='http://www.w3.org/2000/svg';node.replaceChildren();
+ const add=(tag,attrs,text)=>{const a=document.createElementNS(ns,tag);for(const [k,v] of Object.entries(attrs))a.setAttribute(k,String(v));if(text!==undefined)a.textContent=text;node.appendChild(a);return a};
+ const series=rows.map(r=>mode==='cumulative'?r.result.cumulative:r.result.byCycle),max=Math.max(1,...series.flat()),length=series[0].length;
+ const X=i=>55+(length===1?210:i*450/(length-1)),Y=v=>220-v/max*183;
+ for(let k=0;k<=4;k++){const yy=220-k*183/4;add('line',{x1:55,x2:512,y1:yy,y2:yy,stroke:'#29415d'});add('text',{x:5,y:yy+4},Math.round(max*k/4/1000)+'k')}
+ for(let i=0;i<length;i++)add('text',{x:X(i),y:241,'text-anchor':'middle'},String(i+1));
+ const colors=['#35bcb7','#f0b75a','#a69aff'];
+ series.forEach((s,k)=>{add('polyline',{points:s.map((v,i)=>X(i)+','+Y(v)).join(' '),fill:'none',stroke:colors[k], 'stroke-width':3});s.forEach((v,i)=>add('circle',{cx:X(i),cy:Y(v),r:4,fill:colors[k]}))});
+ rows.forEach((r,i)=>{add('rect',{x:65+(i%3)*160,y:9,width:11,height:11,fill:colors[i]});add('text',{x:80+(i%3)*160,y:19},'Rank '+(i+1))});
+}
+function inspect(r){$('detailPanel').hidden=false;$('detailTitle').textContent=r.names.join(' + ');
+ $('detailSummary').textContent='Simulated total: '+fmt(r.damage)+' | SP spent: '+r.result.spLog.spent+' | SP gained: '+r.result.spLog.gained+' | Final SP: '+r.result.endSP;
+ $('policy').textContent=JSON.stringify(r.policy,null,2);
+ $('actions').textContent=r.result.actions.map(a=>a.t.toFixed(2)+' AV | '+a.unit+' '+a.action+(a.target?' → '+a.target:'')+' | SP '+a.sp).join('\n');
+ $('events').textContent=r.result.events.slice(0,12).map(e=>e.t.toFixed(2)+' AV | '+e.owner+' / '+e.source+' = '+fmt(e.damage)+'\n'+JSON.stringify(e.breakdown,null,2)).join('\n\n');
+ $('flags').textContent=r.flags.join('\n• ');
+ $('detailPanel').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function show(){const rs=report.results;$('resultsPanel').hidden=false;$('chartPanel').hidden=false;
+ $('total').textContent=report.teamsEvaluated+' / '+report.totalCandidates+' combinations tested';$('rows').replaceChildren();
+ rs.forEach((r,i)=>{const tr=document.createElement('tr');
+  tr.append(make('td',String(i+1)),make('td',r.names.join(' · ')));tr.append(make('td',fmt(r.damage),'num'),make('td',fmt(r.burst),'num'),make('td',String(r.result.endSP),'num'));
+  const cell=document.createElement('td'),btn=make('button','Inspect','secondary');btn.style.padding='7px 10px';btn.addEventListener('click',()=>inspect(r));cell.append(btn);tr.append(cell);$('rows').append(tr) });
+ chart($('cumulative'),'cumulative',rs.slice(0,3));chart($('perCycle'),'perCycle',rs.slice(0,3));
+}
+$('run').addEventListener('click',()=>{
+ $('run').disabled=true;$('status').textContent='Calculating exact set of supported team combinations…';
+ setTimeout(()=>{try{
+  const cfg={cycles:+$('cycles').value,critMode:'expected',techniques:$('techniques').checked,startSP:3,
+   enemy:{count:+$('enemies').value,level:+$('level').value,res:.20,resWeak:0,weaknesses:['lightning'],broken:false}};
+  report=window.HSROptimizer.rank(snap,cfg,{locked:$('locked').value,maxSimulationsPerTeam:+$('budget').value});
+  show();$('export').disabled=false;$('status').textContent='Complete: '+report.teamsEvaluated+' teams; rotations are approximate.';
+ }catch(e){$('status').textContent='Error: '+e.message;console.error(e)}finally{$('run').disabled=false}},35)
+});
+$('export').addEventListener('click',()=>{if(!report)return;const blob=new Blob([JSON.stringify(report,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='hsr-optimizer-partial-results.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)});
+})();
+</script>
+</body></html>
