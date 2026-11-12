@@ -1,0 +1,654 @@
+{
+  "source": "User-provided HoYoLAB avatar/info response",
+  "scope": "Equipped Light Cones only; no unequipped inventory",
+  "character_entries": 67,
+  "equipped_count": 64,
+  "distinct_light_cone_titles": 50,
+  "without_equipped_light_cone": [
+    "Yanqing",
+    "Pela",
+    "Misha"
+  ],
+  "equipped_light_cones": [
+    {
+      "character_id": 8010,
+      "character": "Trailblazer",
+      "character_level": 80,
+      "light_cone_id": 24006,
+      "light_cone": "Elation Brimming With Blessings",
+      "level": 80,
+      "superimposition": 5,
+      "rarity": 5
+    },
+    {
+      "character_id": 1511,
+      "character": "Aeon ★ Aha",
+      "character_level": 80,
+      "light_cone_id": 22007,
+      "light_cone": "Tomorrow, Together",
+      "level": 80,
+      "superimposition": 5,
+      "rarity": 4
+    },
+    {
+      "character_id": 1509,
+      "character": "Gilgamesh",
+      "character_level": 80,
+      "light_cone_id": 23002,
+      "light_cone": "Something Irreplaceable",
+      "level": 80,
+      "superimposition": 1,
+      "rarity": 5
+    },
+    {
+      "character_id": 1508,
+      "character": "Rin Tohsaka",
+      "character_level": 80,
+      "light_cone_id": 23061,
+      "light_cone": "Flickering Stars",
+      "level": 80,
+      "superimposition": 1,
+      "rarity": 5
+    },
+    {
+      "character_id": 1506,
+      "character": "Silver Wolf LV.999",
+      "character_level": 80,
+      "light_cone_id": 21064,
+      "light_cone": "Mushy Shroomy's Adventures",
+      "level": 80,
+      "superimposition": 5,
+      "rarity": 4
+    },
+    {
+      "character_id": 1503,
+      "character": "Pearl",
+      "character_level": 80,
+      "light_cone_id": 21064,
+      "light_cone": "Mushy Shroomy's Adventures",
+      "level": 80,
+      "superimposition": 5,
+      "rarity": 4
+    },
+    {
+      "character_id": 1502,
+      "character": "Yao Guang",
+      "character_level": 80,
+      "light_cone_id": 21064,
+      "light_cone": "Mushy Shroomy's Adventures",
+      "level": 80,
+      "superimposition": 5,
+      "rarity": 4
+    },
+    {
+      "character_id": 1414,
+      "character": "Dan Heng • Permansor Terrae",
+      "character_level": 80,
+      "light_cone_id": 24002,
+      "light_cone": "Texture of Memories",
+      "level": 80,
+      "superimposition": 5,
+      "rarity": 5
+    },
+    {
+      "character_id": 1413,
+      "character": "Evernight",
+      "character_level": 80,
+      "light_cone_id": 24005,
+      "light_cone": "Memory's Curtain Never Falls",
+      "level": 80,
+      "superimposition": 5,
+      "rarity": 5
+    },
+    {
+      "character_id": 1410,
+      "character": "Hysilens",
+      "character_level": 80,
+      "light_cone_id": 21008,
+      "light_cone": "Eyes of the Prey",
+      "level": 80,
+      "superimposition": 2,
+      "rarity": 4
+    },
+    {
+      "character_id": 1408,
+      "character": "Phainon",
+      "character_level": 80,
+      "light_cone_id": 21042,
+      "light_cone": "Indelible Promise",
+      "level": 80,
+      "superimposition": 4,
+      "rarity": 4
+    },
+    {
+      "character_id": 1407,
+      "character": "Castorice",
+      "character_level": 80,
+      "light_cone_id": 23040,
+      "light_cone": "Make Farewells More Beautiful",
+      "level": 80,
+      "superimposition": 1,
+      "rarity": 5
+    },
+    {
+      "character_id": 1403,
+      "character": "Tribbie",
+      "character_level": 80,
+      "light_cone_id": 21018,
+      "light_cone": "Dance! Dance! Dance!",
+      "level": 80,
+      "superimposition": 5,
+      "rarity": 4
+    },
+    {
+      "character_id": 1401,
+      "character": "The Herta",
+      "character_level": 80,
+      "light_cone_id": 24004,
+      "light_cone": "Eternal Calculus",
+      "level": 80,
+      "superimposition": 5,
+      "rarity": 5
+    },
+    {
+      "character_id": 1321,
+      "character": "The Dahlia",
+      "character_level": 80,
+      "light_cone_id": 21015,
+      "light_cone": "Resolution Shines As Pearls of Sweat",
+      "level": 80,
+      "superimposition": 4,
+      "rarity": 4
+    },
+    {
+      "character_id": 1313,
+      "character": "Sunday",
+      "character_level": 80,
+      "light_cone_id": 23003,
+      "light_cone": "But the Battle Isn't Over",
+      "level": 80,
+      "superimposition": 1,
+      "rarity": 5
+    },
+    {
+      "character_id": 1310,
+      "character": "Firefly",
+      "character_level": 80,
+      "light_cone_id": 24000,
+      "light_cone": "On the Fall of an Aeon",
+      "level": 80,
+      "superimposition": 5,
+      "rarity": 5
+    },
+    {
+      "character_id": 1309,
+      "character": "Robin",
+      "character_level": 80,
+      "light_cone_id": 22002,
+      "light_cone": "For Tomorrow's Journey",
+      "level": 80,
+      "superimposition": 5,
+      "rarity": 4
+    },
+    {
+      "character_id": 1308,
+      "character": "Acheron",
+      "character_level": 80,
+      "light_cone_id": 21001,
+      "light_cone": "Good Night and Sleep Well",
+      "level": 80,
+      "superimposition": 1,
+      "rarity": 4
+    },
+    {
+      "character_id": 1307,
+      "character": "Black Swan",
+      "character_level": 80,
+      "light_cone_id": 21008,
+      "light_cone": "Eyes of the Prey",
+      "level": 80,
+      "superimposition": 5,
+      "rarity": 4
+    },
+    {
+      "character_id": 1306,
+      "character": "Sparkle",
+      "character_level": 80,
+      "light_cone_id": 23021,
+      "light_cone": "Earthly Escapade",
+      "level": 80,
+      "superimposition": 1,
+      "rarity": 5
+    },
+    {
+      "character_id": 1305,
+      "character": "Dr. Ratio",
+      "character_level": 80,
+      "light_cone_id": 21017,
+      "light_cone": "Subscribe for More!",
+      "level": 1,
+      "superimposition": 1,
+      "rarity": 4
+    },
+    {
+      "character_id": 1303,
+      "character": "Ruan Mei",
+      "character_level": 80,
+      "light_cone_id": 21004,
+      "light_cone": "Memories of the Past",
+      "level": 80,
+      "superimposition": 4,
+      "rarity": 4
+    },
+    {
+      "character_id": 1302,
+      "character": "Argenti",
+      "character_level": 80,
+      "light_cone_id": 21020,
+      "light_cone": "Geniuses' Repose",
+      "level": 80,
+      "superimposition": 1,
+      "rarity": 4
+    },
+    {
+      "character_id": 1225,
+      "character": "Fugue",
+      "character_level": 80,
+      "light_cone_id": 24003,
+      "light_cone": "Solitary Healing",
+      "level": 80,
+      "superimposition": 5,
+      "rarity": 5
+    },
+    {
+      "character_id": 1222,
+      "character": "Lingsha",
+      "character_level": 80,
+      "light_cone_id": 21035,
+      "light_cone": "What Is Real?",
+      "level": 80,
+      "superimposition": 5,
+      "rarity": 4
+    },
+    {
+      "character_id": 1221,
+      "character": "Yunli",
+      "character_level": 80,
+      "light_cone_id": 20002,
+      "light_cone": "Collapsing Sky",
+      "level": 60,
+      "superimposition": 5,
+      "rarity": 3
+    },
+    {
+      "character_id": 1217,
+      "character": "Huohuo",
+      "character_level": 80,
+      "light_cone_id": 22001,
+      "light_cone": "Hey, Over Here",
+      "level": 80,
+      "superimposition": 5,
+      "rarity": 4
+    },
+    {
+      "character_id": 1213,
+      "character": "Dan Heng • Imbibitor Lunae",
+      "character_level": 80,
+      "light_cone_id": 21042,
+      "light_cone": "Indelible Promise",
+      "level": 1,
+      "superimposition": 1,
+      "rarity": 4
+    },
+    {
+      "character_id": 1208,
+      "character": "Fu Xuan",
+      "character_level": 80,
+      "light_cone_id": 21002,
+      "light_cone": "Day One of My New Life",
+      "level": 80,
+      "superimposition": 3,
+      "rarity": 4
+    },
+    {
+      "character_id": 1205,
+      "character": "Blade",
+      "character_level": 80,
+      "light_cone_id": 22003,
+      "light_cone": "Ninja Record: Sound Hunt",
+      "level": 80,
+      "superimposition": 5,
+      "rarity": 4
+    },
+    {
+      "character_id": 1204,
+      "character": "Jing Yuan",
+      "character_level": 80,
+      "light_cone_id": 23000,
+      "light_cone": "Night on the Milky Way",
+      "level": 80,
+      "superimposition": 1,
+      "rarity": 5
+    },
+    {
+      "character_id": 1203,
+      "character": "Luocha",
+      "character_level": 80,
+      "light_cone_id": 21014,
+      "light_cone": "Perfect Timing",
+      "level": 80,
+      "superimposition": 3,
+      "rarity": 4
+    },
+    {
+      "character_id": 1107,
+      "character": "Clara",
+      "character_level": 80,
+      "light_cone_id": 21019,
+      "light_cone": "Under the Blue Sky",
+      "level": 80,
+      "superimposition": 5,
+      "rarity": 4
+    },
+    {
+      "character_id": 1102,
+      "character": "Seele",
+      "character_level": 80,
+      "light_cone_id": 24001,
+      "light_cone": "Cruising in the Stellar Sea",
+      "level": 80,
+      "superimposition": 5,
+      "rarity": 5
+    },
+    {
+      "character_id": 1101,
+      "character": "Bronya",
+      "character_level": 80,
+      "light_cone_id": 21025,
+      "light_cone": "Past and Future",
+      "level": 80,
+      "superimposition": 5,
+      "rarity": 4
+    },
+    {
+      "character_id": 1015,
+      "character": "Archer",
+      "character_level": 80,
+      "light_cone_id": 23046,
+      "light_cone": "The Hell Where Ideals Burn",
+      "level": 80,
+      "superimposition": 1,
+      "rarity": 5
+    },
+    {
+      "character_id": 1014,
+      "character": "Saber",
+      "character_level": 80,
+      "light_cone_id": 23045,
+      "light_cone": "A Thankless Coronation",
+      "level": 80,
+      "superimposition": 1,
+      "rarity": 5
+    },
+    {
+      "character_id": 1006,
+      "character": "Silver Wolf",
+      "character_level": 80,
+      "light_cone_id": 22000,
+      "light_cone": "Before the Tutorial Mission Starts",
+      "level": 80,
+      "superimposition": 5,
+      "rarity": 4
+    },
+    {
+      "character_id": 1005,
+      "character": "Kafka",
+      "character_level": 80,
+      "light_cone_id": 21001,
+      "light_cone": "Good Night and Sleep Well",
+      "level": 80,
+      "superimposition": 5,
+      "rarity": 4
+    },
+    {
+      "character_id": 1004,
+      "character": "Welt",
+      "character_level": 80,
+      "light_cone_id": 23004,
+      "light_cone": "In the Name of the World",
+      "level": 80,
+      "superimposition": 1,
+      "rarity": 5
+    },
+    {
+      "character_id": 1003,
+      "character": "Himeko",
+      "character_level": 80,
+      "light_cone_id": 20006,
+      "light_cone": "Data Bank",
+      "level": 40,
+      "superimposition": 5,
+      "rarity": 3
+    },
+    {
+      "character_id": 1301,
+      "character": "Gallagher",
+      "character_level": 80,
+      "light_cone_id": 21035,
+      "light_cone": "What Is Real?",
+      "level": 80,
+      "superimposition": 5,
+      "rarity": 4
+    },
+    {
+      "character_id": 1224,
+      "character": "March 7th",
+      "character_level": 80,
+      "light_cone_id": 21003,
+      "light_cone": "Only Silence Remains",
+      "level": 1,
+      "superimposition": 1,
+      "rarity": 4
+    },
+    {
+      "character_id": 1223,
+      "character": "Moze",
+      "character_level": 80,
+      "light_cone_id": 23012,
+      "light_cone": "Sleep Like the Dead",
+      "level": 80,
+      "superimposition": 1,
+      "rarity": 5
+    },
+    {
+      "character_id": 1214,
+      "character": "Xueyi",
+      "character_level": 80,
+      "light_cone_id": 21042,
+      "light_cone": "Indelible Promise",
+      "level": 1,
+      "superimposition": 1,
+      "rarity": 4
+    },
+    {
+      "character_id": 1207,
+      "character": "Yukong",
+      "character_level": 80,
+      "light_cone_id": 21018,
+      "light_cone": "Dance! Dance! Dance!",
+      "level": 1,
+      "superimposition": 1,
+      "rarity": 4
+    },
+    {
+      "character_id": 1206,
+      "character": "Sushang",
+      "character_level": 80,
+      "light_cone_id": 21024,
+      "light_cone": "River Flows in Spring",
+      "level": 1,
+      "superimposition": 1,
+      "rarity": 4
+    },
+    {
+      "character_id": 1202,
+      "character": "Tingyun",
+      "character_level": 80,
+      "light_cone_id": 21011,
+      "light_cone": "Planetary Rendezvous",
+      "level": 1,
+      "superimposition": 1,
+      "rarity": 4
+    },
+    {
+      "character_id": 1201,
+      "character": "Qingque",
+      "character_level": 80,
+      "light_cone_id": 21006,
+      "light_cone": "The Birth of the Self",
+      "level": 40,
+      "superimposition": 1,
+      "rarity": 4
+    },
+    {
+      "character_id": 1013,
+      "character": "Herta",
+      "character_level": 80,
+      "light_cone_id": 21006,
+      "light_cone": "The Birth of the Self",
+      "level": 80,
+      "superimposition": 5,
+      "rarity": 4
+    },
+    {
+      "character_id": 1211,
+      "character": "Bailu",
+      "character_level": 70,
+      "light_cone_id": 21021,
+      "light_cone": "Quid Pro Quo",
+      "level": 30,
+      "superimposition": 1,
+      "rarity": 4
+    },
+    {
+      "character_id": 1104,
+      "character": "Gepard",
+      "character_level": 70,
+      "light_cone_id": 21009,
+      "light_cone": "Landau's Choice",
+      "level": 60,
+      "superimposition": 1,
+      "rarity": 4
+    },
+    {
+      "character_id": 1215,
+      "character": "Hanya",
+      "character_level": 70,
+      "light_cone_id": 21018,
+      "light_cone": "Dance! Dance! Dance!",
+      "level": 30,
+      "superimposition": 1,
+      "rarity": 4
+    },
+    {
+      "character_id": 1210,
+      "character": "Guinaifen",
+      "character_level": 70,
+      "light_cone_id": 20004,
+      "light_cone": "Void",
+      "level": 1,
+      "superimposition": 1,
+      "rarity": 3
+    },
+    {
+      "character_id": 1111,
+      "character": "Luka",
+      "character_level": 70,
+      "light_cone_id": 21022,
+      "light_cone": "Fermata",
+      "level": 30,
+      "superimposition": 1,
+      "rarity": 4
+    },
+    {
+      "character_id": 1110,
+      "character": "Lynx",
+      "character_level": 70,
+      "light_cone_id": 23013,
+      "light_cone": "Time Waits for No One",
+      "level": 80,
+      "superimposition": 1,
+      "rarity": 5
+    },
+    {
+      "character_id": 1109,
+      "character": "Hook",
+      "character_level": 70,
+      "light_cone_id": 21026,
+      "light_cone": "Woof! Walk Time!",
+      "level": 30,
+      "superimposition": 1,
+      "rarity": 4
+    },
+    {
+      "character_id": 1108,
+      "character": "Sampo",
+      "character_level": 70,
+      "light_cone_id": 21015,
+      "light_cone": "Resolution Shines As Pearls of Sweat",
+      "level": 80,
+      "superimposition": 1,
+      "rarity": 4
+    },
+    {
+      "character_id": 1105,
+      "character": "Natasha",
+      "character_level": 70,
+      "light_cone_id": 21000,
+      "light_cone": "Post-Op Conversation",
+      "level": 70,
+      "superimposition": 3,
+      "rarity": 4
+    },
+    {
+      "character_id": 1103,
+      "character": "Serval",
+      "character_level": 70,
+      "light_cone_id": 21013,
+      "light_cone": "Make the World Clamor",
+      "level": 70,
+      "superimposition": 1,
+      "rarity": 4
+    },
+    {
+      "character_id": 1009,
+      "character": "Asta",
+      "character_level": 70,
+      "light_cone_id": 21011,
+      "light_cone": "Planetary Rendezvous",
+      "level": 40,
+      "superimposition": 3,
+      "rarity": 4
+    },
+    {
+      "character_id": 1008,
+      "character": "Arlan",
+      "character_level": 70,
+      "light_cone_id": 20002,
+      "light_cone": "Collapsing Sky",
+      "level": 36,
+      "superimposition": 5,
+      "rarity": 3
+    },
+    {
+      "character_id": 1002,
+      "character": "Dan Heng",
+      "character_level": 70,
+      "light_cone_id": 21003,
+      "light_cone": "Only Silence Remains",
+      "level": 40,
+      "superimposition": 1,
+      "rarity": 4
+    }
+  ]
+}
